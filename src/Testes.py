@@ -18,23 +18,28 @@ from kivy.lang import Builder # importa telas do arquivo .kv
 Builder.load_file('telas.kv')
  
 # Definir o tamanho da tela
-Window.size = (400, 600)
+Window.size = (338, 600)
  
 # importando a nova fonte
 LabelBase.register(name='MinhaFonte', fn_regular='Roboto/Roboto-Regular.ttf')
+
+# tempo da SplashScreen
+tempoSplash = 0
  
 #-----------------------------------------
 #   Telas da aplicação
 #-----------------------------------------
- 
+
+#----------------------------------------- 
 # Tela SplashScreen
+#-----------------------------------------
 class SplashScreen(Screen):
-    def on_enter(self):
+    def on_enter(self): #executa ao abrir a tela
         # Agendar a navegação para a tela de login após 3 segundos
-        Clock.schedule_once(self.go_to_login, 3)
+        Clock.schedule_once(self.vai_para_login, tempoSplash)
  
-    def go_to_login(self, dt):
-        # Transição para a tela de login
+    def vai_para_login(self, dt):
+        # Transição para a tela de login sempre pelo id da tela
         self.manager.current = 'login'
  
  
@@ -46,7 +51,7 @@ class LoginScreen(Screen):
 #   Classe principal
 #-----------------------------------------
 class Testes(App):
-    def build(self):
+    def build(self): #contrutor do Kyvi
        
         # cor de fundo da janela
         Window.clearcolor = get_color_from_hex('#ffffff')
@@ -57,6 +62,7 @@ class Testes(App):
         # Adiciona as telas ao ScreenManager
         sm.add_widget(SplashScreen(name='splash'))
         sm.add_widget(LoginScreen(name='login'))
+        
  
         return sm
  

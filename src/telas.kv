@@ -4,11 +4,41 @@
         Image:
             source: 'imagens/logo1.png' # caminho
             size_hint: 0.5, 0.6 # tamanho em 50%
-            pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+            pos_hint: {'center_x': 0.5, 'center_y': 0.7}
  
         Label:
             text: 'Desenvolvido por T98 © 2024'
             font_size: '16sp'
             color: 1, 0, 0, 1
             font_name: "MinhaFonte"
-            pos_hint: {'center_x': 0.5, 'y': -0.02}
+            pos_hint: {'center_x': 0.5, 'y': -0.40}
+
+#Tela Login
+<LoginScreen>:
+    id: login
+    FloatLayout:
+        #imagem do fundo
+        Image:
+            source: 'imagens/fundo.png' # caminho
+            fit_mode: 'fill'
+        #logo
+        Image:
+            source: 'imagens/logo.png' # caminho
+            size_hint: 0.5, 0.5 # tamanho em 50%
+            pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+    
+        #rótulo
+        Label:
+            text:'Acessar'
+            font_size:'20sp'
+            color: 1, 0, 0, 1
+            font_name: "MinhaFonte"
+            pos_hint: {'center_x': 0.5,'y':-0.010}
+        
+        TextInput:
+            hint_text: 'Seu melhor E-mail'
+            font_size: '14sp'
+        
+        TextInput:
+            hint_text: 'Sua senha'
+            font_size: '14sp'
