@@ -16,16 +16,26 @@
 #Tela Login
 <LoginScreen>:
     id: login
+    # BoxLayout coloca os componentes um abaixo/lado do outro
+    # Similar ao display flex do css
     FloatLayout:
         #imagem do fundo
         Image:
             source: 'imagens/fundo.png' # caminho
             fit_mode: 'fill'
+            allow_stretch: True # permite o aumento da img
+            keep_ratio: True # manter a proporção da img
+
+    BoxLayout:
+        orientation:'vertical'
+        spacing: '15dp' # margin do css
+        padding: '15dp'
+
         #logo
         Image:
             source: 'imagens/logo.png' # caminho
-            size_hint: 0.5, 0.5 # tamanho em 50%
-            pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+            size_hint: 1, 1 # tamanho em 50%
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
     
         #rótulo
         Label:
@@ -34,11 +44,39 @@
             color: 1, 0, 0, 1
             font_name: "MinhaFonte"
             pos_hint: {'center_x': 0.5,'y':-0.010}
+            size_hint: None, None # sem tamanho
         
         TextInput:
             hint_text: 'Seu melhor E-mail'
             font_size: '14sp'
+            size_hint: 0.95 , 0.3 # x y
+            pos_hint: {'center_x': 0.5, 'center_y':0.5} #center
+            padding: ('10sp', '17sp', '10sp', '5sp') # left top right botton
+            
         
         TextInput:
             hint_text: 'Sua senha'
             font_size: '14sp'
+            size_hint: 0.95 , 0.3 # x y
+            pos_hint: {'center_x': 0.5, 'center_y':0.5} #center
+            padding: ('10sp', '17sp', '10sp', '5sp') # left top right botton
+            password: True # oculta a senha do usuário
+        
+        Button:
+            text: 'Acessar'
+            font_size: '16sp'
+            size_hint: 0.3 , 0.3
+            pos_hint: {'center_x': 0.8, 'center_y':0.5} #center
+
+            #rgba(241, 70, 36, 1)
+            background_color: [0.95, 0.27, 0.14, 1] #rgba red,green,blue,alpha - cor do fundo
+            background_normal: 'imagens/fundo_btn.png'# coloca imagem de fundo
+            background_down: 'imagens/fundo_down_btn.png' 
+            size_hint: 0.3, 0.3
+            pos_hint: {'center_x': 0.8, 'center_y':0.5} #center
+
+            
+
+
+            
+            
