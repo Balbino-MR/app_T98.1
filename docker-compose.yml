@@ -28,7 +28,7 @@ services:
         build: .
         # porta da VM : Porta no container
         ports:
-        - "8090:7092"
+        - "7090:7092"
         # persistência/cópia de dados
         volumes:
         - ./src:/src
@@ -37,7 +37,26 @@ services:
         - DISPLAY=:0
         # terminal dentro do container python
         tty: true   
- 
+
+# Serviços para usar o PHP  
+    nginx:
+        build: ./nginx/
+        ports:
+            - 8090:80
+
+        volumes:
+            - ./aplicacao/:/var/www/html/
+
+# Instalado no servidor o Processador do PHP
+    php:
+        build: ./php/ # pasta de config do container
+        expose:
+            - 8000 # porta de uso do PHP
+        volumes:
+            - ./aplicacao/:/var/www/html
+
+
+
 networks:
     python_network: # nome da rede
         driver: bridge # permite a comunicação em rede entre os containers 

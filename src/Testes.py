@@ -25,7 +25,17 @@ LabelBase.register(name='MinhaFonte', fn_regular='Roboto/Roboto-Regular.ttf')
 
 # tempo da SplashScreen
 tempoSplash = 0
- 
+
+#-----------------------------------------
+#   Acesso ao Banco de Dados mySQL
+#-----------------------------------------
+def ir_para_login(self, instance):
+    self.manager.current = 'login'
+
+def ir_para_cadastro(self, instance):
+    self.manager.current = 'cadastro'
+
+
 #-----------------------------------------
 #   Telas da aplicação
 #-----------------------------------------
@@ -46,6 +56,10 @@ class SplashScreen(Screen):
 # Tela de Login
 class LoginScreen(Screen):
     pass
+
+# Tela de Cadastro
+class CadastroScreen(Screen):
+    pass
  
 #-----------------------------------------
 #   Classe principal
@@ -62,6 +76,8 @@ class Testes(App):
         # Adiciona as telas ao ScreenManager
         sm.add_widget(SplashScreen(name='splash'))
         sm.add_widget(LoginScreen(name='login'))
+        sm.add_widget(CadastroScreen(name='cadastro'))
+        
         
  
         return sm

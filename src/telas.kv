@@ -13,7 +13,10 @@
             font_name: "MinhaFonte"
             pos_hint: {'center_x': 0.5, 'y': -0.40}
 
-#Tela Login
+
+#------------------------------------------------
+#               Tela Login                    | |
+#------------------------------------------------
 <LoginScreen>:
     id: login
     # BoxLayout coloca os componentes um abaixo/lado do outro
@@ -49,18 +52,36 @@
         TextInput:
             hint_text: 'Seu melhor E-mail'
             font_size: '14sp'
-            size_hint: 0.95 , 0.3 # x y
-            pos_hint: {'center_x': 0.5, 'center_y':0.5} #center
-            padding: ('10sp', '17sp', '10sp', '5sp') # left top right botton
+            size_hint: 0.95 , 0.2 # x y
+            pos_hint: {'center_x': 0.5, 'center_y':0.4} #center
+            padding: ('10sp', '12sp', '10sp', '5sp') # left top right botton
+            background_normal: 'imagens/f_campo.png'# coloca imagem de fundo
             
         
         TextInput:
             hint_text: 'Sua senha'
             font_size: '14sp'
-            size_hint: 0.95 , 0.3 # x y
-            pos_hint: {'center_x': 0.5, 'center_y':0.5} #center
-            padding: ('10sp', '17sp', '10sp', '5sp') # left top right botton
+            size_hint: 0.95 , 0.2 # x y
+            pos_hint: {'center_x': 0.5, 'center_y':0.4} #center
+            padding: ('10sp', '12sp', '10sp', '5sp') # left top right botton
             password: True # oculta a senha do usuário
+            background_normal: 'imagens/f_campo.png'# coloca imagem de fundo
+
+        BoxLayout:
+            orientation:'horizontal'
+            size_hint: 1, 0.2
+
+            Label:
+                text:'Cadastra-se aqui'            
+                font_size:'14sp'
+                color: 1, 0, 0, 1
+                font_name: "MinhaFonte"
+
+            Label:
+                text:'Recuperar a senha'            
+                font_size:'14sp'
+                color: 1, 0, 0, 1
+                font_name: "MinhaFonte"
         
         Button:
             text: 'Acessar'
@@ -72,11 +93,126 @@
             background_color: [0.95, 0.27, 0.14, 1] #rgba red,green,blue,alpha - cor do fundo
             background_normal: 'imagens/fundo_btn.png'# coloca imagem de fundo
             background_down: 'imagens/fundo_down_btn.png' 
-            size_hint: 0.3, 0.3
-            pos_hint: {'center_x': 0.8, 'center_y':0.5} #center
+            size_hint: 0.4, 0.2
+            pos_hint: {'center_x': 0.8, 'center_y':0.5} #center 
+
+
+#------------------------------------------------
+#               Tela Cadastro                 | |
+#------------------------------------------------
+<CadastroScreen>:
+    id: cadastro
+
+    FloatLayout:
+        Image:
+            source: 'imagens/fundo.png' 
+            fit_mode: 'fill'
+            allow_stretch: True 
+            keep_ratio: True 
+
+    BoxLayout:
+        orientation:'vertical'
+        spacing: '5dp' 
+        padding: '5dp'
+
+        #logo
+        Image:
+            source: 'imagens/logo.png'
+            size_hint: 1, 1 
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+    
+        #rótulo
+        Label:
+            text:'Cadastra-se'
+            font_size:'20sp'
+            color: 1, 0, 0, 1
+            font_name: "MinhaFonte"
+            pos_hint: {'center_x': 0.5,'y':-0.05}
+            size_hint: None, None 
+
+        BoxLayout:
+            orientation:'horizontal'
+            size_hint: 0.2, 0.05
+
+            Label:
+                text:'E-mail:'            
+                font_size:'14sp'
+                color: 1, 0, 0, 1
+                font_name: "MinhaFonte"
+        
+        TextInput:
+            hint_text: 'Ex: teste123@gmail.com'
+            font_size: '14sp'
+            size_hint: 0.95 , 0.2 
+            pos_hint: {'center_x': 0.5, 'center_y':0.4} 
+            padding: ('10sp', '12sp', '10sp', '5sp') # left top right botton
+            background_normal: 'imagens/f_campo.png'
+            
+        BoxLayout:
+            orientation:'horizontal'
+            size_hint: 0.2, 0.05
+
+            Label:
+                text:'Senha:'            
+                font_size:'14sp'
+                color: 1, 0, 0, 1
+                font_name: "MinhaFonte"
+        
+        TextInput:
+            #hint_text: 'Ex: teste123@gmail.com'
+            font_size: '14sp'
+            size_hint: 0.95 , 0.2
+            pos_hint: {'center_x': 0.5, 'center_y':0.4}
+            padding: ('10sp', '12sp', '10sp', '5sp') # left top right botton
+            background_normal: 'imagens/f_campo.png'
+        
+        BoxLayout:
+            orientation:'horizontal'
+            size_hint: 0.37, 0.05
+
+            Label:
+                text:'Repita a senha:'            
+                font_size:'14sp'
+                color: 1, 0, 0, 1
+                font_name: "MinhaFonte"
+        
+        TextInput:
+            #hint_text: 'Ex: teste123@gmail.com'
+            font_size: '14sp'
+            size_hint: 0.95 , 0.2
+            pos_hint: {'center_x': 0.5, 'center_y':0.4} 
+            padding: ('10sp', '12sp', '10sp', '5sp')
+            background_normal: 'imagens/f_campo.png'
+
+        BoxLayout:
+            orientation:'horizontal'
+            size_hint: 0.7, 0.1
+
+            Button:
+                text:'Já possui cadastro? Faça login.'            
+                font_size:'14sp'
+                color: 1, 0, 0, 1
+                background_color: 1,1,1,0
+                font_name: "MinhaFonte"
+                # função executada ao clicar no item
+                on_press: app.root.ir_para_login
+
+        
+        Button:
+            text: 'Próximo'
+            font_size: '14sp'
+            size_hint: 0.3 , 0.3
+            pos_hint: {'center_x': 0.8, 'center_y':0.5}
+
+            background_color: [0.95, 0.27, 0.14, 1]
+            background_normal: 'imagens/fundo_btn.png'
+            background_down: 'imagens/fundo_down_btn.png' 
+            size_hint: 0.4, 0.2
+            pos_hint: {'center_x': 0.8, 'center_y':0.5} 
+
 
             
 
 
-            
+
             

@@ -1,0 +1,65 @@
+:root
+{
+    --corPrincipal: #009;
+    --fonte: Verdana;
+    --margemInterna: 5px;
+}
+
+*
+{
+    padding: 0;
+    margin: 0;
+}
+
+/* torna as imgs responsivas */
+img 
+{
+    width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+.telefones
+{
+    background: var(--corPrincipal);
+    padding: var(--margemInterna);
+    padding-right: 14%;
+    display: flex;
+    justify-content: end;
+}
+
+.telefones p a
+{
+    color: #fff;
+    text-decoration: none;/* none underline line-through  */
+    margin-right: 30px;
+}
+
+/*-----------------------------------------*/
+/*-----------Topo do Site------------------*/
+/*-----------------------------------------*/
+header
+{
+    height: 90px;
+    overflow: hidden;/* esconde o que passar do height/width */
+    display: flex;
+    justify-content: space-between; /* horizontal center start end */
+    align-items: center;/* vertical */
+    padding: 0 14% 0 14%;
+}
+
+header figure
+{
+    padding: var(--margemInterna);
+    width: 16%;
+    align-self: start;/* muda o alinhamento vertical deste item */
+}
+
+header nav ul li
+{
+    display: inline-block;
+    list-style-type: none;
+}
+
+
+
