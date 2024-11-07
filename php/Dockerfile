@@ -6,3 +6,7 @@ RUN docker-php-ext-install pdo
 
 # habilita o uso das dependências
 RUN docker-php-ext-enable pdo
+
+EXPOSE 8000
+
+CMD ["php-fpm"]
